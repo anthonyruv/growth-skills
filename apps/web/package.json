@@ -7,9 +7,9 @@
     "check-types": "tsc --noEmit",
     "start": "next start",
     "dev:bare": "next dev --port 3001",
-    "build:cloudflare": "opennextjs-cloudflare build",
+    "build:cloudflare": "next build",
     "env:generate": "varlock codegen",
-    "deploy:built": "wrangler deploy"
+    "deploy:built": "wrangler pages deploy out --project-name growth-skills"
   },
   "dependencies": {
     "@growth-skills/ui": "workspace:*",
@@ -17,6 +17,7 @@
     "@mdx-js/react": "^3.1.1",
     "@next/mdx": "^16.3.5",
     "@opennextjs/cloudflare": "^1.20.6",
+    "@paper-design/shaders-react": "0.0.81",
     "@swc/helpers": "^0.5.23",
     "@types/mdx": "^2.0.14",
     "babel-plugin-react-compiler": "^1.0.0",

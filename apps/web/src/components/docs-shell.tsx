@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { Button } from "@growth-skills/ui/components/button";
 import { Input } from "@growth-skills/ui/components/input";
+import { PaperSurface } from "@/components/paper-art";
 import { repository, searchablePages, skills } from "@/lib/catalog";
 export function DocsShell({ children }: { children: React.ReactNode }) {
   const path = usePathname();
@@ -71,10 +72,10 @@ export function DocsShell({ children }: { children: React.ReactNode }) {
       <header className="site-header">
         <Link href="/" className="brand" onClick={go}>
           <span className="brand-mark" aria-hidden="true">
-            g<span>↗</span>
+            ✳
           </span>
           <span>
-            Growth<span className="brand-light">Skills</span>
+            Growth<span className="brand-light"> Skills</span>
           </span>
         </Link>
         <div className="header-right">
@@ -177,14 +178,14 @@ export function DocsShell({ children }: { children: React.ReactNode }) {
       >
         <nav>
           <div className="nav-group">
-            <p>START HERE</p>
+            <p>THE FIELD GUIDE</p>
             {navLink("/", "Overview", <BookOpen size={16} />)}
             {navLink("/docs/introduction", "Introduction")}
             {navLink("/docs/installation", "Installation")}
           </div>
           <div className="nav-group">
             <p>
-              THE SKILLS <span>3</span>
+              THE COLLECTION <span>3</span>
             </p>
             {skills.map((skill) => (
               <div key={skill.slug}>
@@ -193,7 +194,7 @@ export function DocsShell({ children }: { children: React.ReactNode }) {
             ))}
           </div>
           <div className="nav-group">
-            <p>GO DEEPER</p>
+            <p>THE FOOTNOTES</p>
             {navLink("/docs/sources", "Sources & method")}
             {navLink("/docs/changelog", "Changelog")}
             <a className="nav-link" href={repository}>
@@ -203,7 +204,7 @@ export function DocsShell({ children }: { children: React.ReactNode }) {
         </nav>
         <div className="sidebar-bottom">
           <span className="sidebar-version">
-            v0.1 <span>First collection</span>
+            v0.1 <span>FIELD NOTES / 001</span>
           </span>
           <p>
             Good thinking.
@@ -216,6 +217,7 @@ export function DocsShell({ children }: { children: React.ReactNode }) {
         </div>
       </aside>
       <main className="main-content" id="main">
+        <PaperSurface />
         {children}
       </main>
     </>

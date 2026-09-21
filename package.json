@@ -34,9 +34,9 @@
     "postinstall": "varlock codegen --path ./apps/web/",
     "skills:package": "bun scripts/package-skills.ts",
     "skills:validate": "bun scripts/validate-skills.ts",
-    "build:cloudflare": "bun run skills:validate && bun run skills:package && bun run --filter web build:cloudflare",
+    "build:cloudflare": "bun run build",
     "deploy:built": "bun run --filter web deploy:built",
-    "verify": "bun run build:cloudflare && bun run check-types"
+    "verify": "bun run skills:validate && bun run build && bun run check-types"
   },
   "dependencies": {
     "zod": "catalog:"

@@ -23,25 +23,24 @@ bun install
 bun run dev:web
 ```
 
-The site runs on port 3001. `bun run verify` validates skill packaging, builds the Cloudflare deployment, and checks TypeScript. `bun run deploy:built` publishes a previously built worker using Wrangler.
+The site runs on port 3001. `bun run verify` validates skill packaging, builds the static Cloudflare deployment, and checks TypeScript. `bun run deploy:built` publishes a previously built Pages site using Wrangler.
 
 ## Stack
 
-Scaffolded with the Better T Stack CLI: Next.js App Router, React, TypeScript, Tailwind CSS, and shared shadcn/Base UI components. Documentation is local MDX. OpenNext adapts the app to Cloudflare Workers.
+Scaffolded with the Better T Stack CLI: Next.js App Router, React, TypeScript, Tailwind CSS, and shared shadcn/Base UI components. Documentation is local MDX. The docs export to static HTML for Cloudflare Pages. Paper Shaders supplies the dithered artwork and paper texture.
 
 We inspected [AI Hero's public source](https://github.com/badass-courses/ai-hero/tree/68cb126359f6d70dd060627643393f873724acb4/apps/ai-hero). Its docs/skills experience uses Next.js, React, Tailwind, MDX, and custom layouts inside Course Builder, rather than a separate documentation framework. This project follows that foundation with local content and no course-commerce backend.
 
-The generated Alchemy package remains as scaffold provenance; production uses the checked-in Wrangler configuration and Cloudflare Workers Builds. Do not use the Alchemy deploy/destroy scripts for this production worker.
+The Alchemy/OpenNext packages are retained from the Better T Stack scaffold; this documentation site uses Next.js static export and Cloudflare Pages.
 
 ## Deployment
 
-Production account: `5d2a61f9fead92cd9e42d11ffaab5255` (personal account).
-Worker: `growth-skills`.
-Production URL: https://growth-skills.whimwork-anthonyruv.workers.dev
+Personal Cloudflare account: `5d2a61f9fead92cd9e42d11ffaab5255`.
+Pages project: `growth-skills`.
 
-GitHub Actions runs `bun run verify` on pull requests and main. Cloudflare Workers Builds must connect this repository, production branch `main`, repository root `/`, build command `bun run verify`, and deploy command `bun run deploy:built`. Set build environment `BUN_VERSION=1.3.13` and `NODE_VERSION=22`.
+GitHub Actions runs `bun run verify` on pull requests and main. Connect Cloudflare Pages to this repository, production branch `main`, repository root `/`, build command `bun run verify`, and output directory `apps/web/out`. Set `BUN_VERSION=1.3.13` and `NODE_VERSION=22` in the build environment.
 
-Wrangler credentials are local or managed by Cloudflare; none belong in the repository. The existing account-wide workers.dev subdomain is preserved.
+The project gets its own `pages.dev` hostname. No account-wide hostname change is required. Wrangler credentials remain local or are managed by Cloudflare; none belong in the repository.
 
 ## Content and catalog
 

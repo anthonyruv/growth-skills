@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
-import { Inter, Geist_Mono } from "next/font/google";
+import { Inter, Geist_Mono, Instrument_Serif } from "next/font/google";
 import "../index.css";
 import Providers from "@/components/providers";
 import { DocsShell } from "@/components/docs-shell";
 const sans = Inter({ variable: "--font-geist-sans", subsets: ["latin"] });
+const editorial = Instrument_Serif({
+  variable: "--font-editorial",
+  weight: "400",
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+});
 const mono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 export const metadata: Metadata = {
   title: {
@@ -20,7 +26,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${sans.variable} ${mono.variable}`}>
+      <body
+        className={`${sans.variable} ${mono.variable} ${editorial.variable}`}
+      >
         <Providers>
           <DocsShell>{children}</DocsShell>
         </Providers>
