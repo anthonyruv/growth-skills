@@ -1,0 +1,3 @@
+{
+  "extends": "@growth-skills/config/tsconfig.base.json"
+}

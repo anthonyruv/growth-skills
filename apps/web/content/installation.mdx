@@ -1,0 +1,44 @@
+## Install the collection
+
+Run this from the project where you want to use the skills. You need Node.js and npm available for `npx`.
+
+```bash
+npx skills add anthonyruv/growth-skills
+```
+
+The skills CLI will let you choose skills, detected agents, and installation scope. Supported agents include Claude Code, Codex, Cursor, and GitHub Copilot. Agent behavior and available options can vary; see the [official CLI documentation](https://skills.sh/docs/cli).
+
+## Install one skill
+
+```bash
+npx skills add anthonyruv/growth-skills --skill build-landing-page
+```
+
+The other names are `create-offer` and `plan-conversion-test`. To inspect the available skills before installing:
+
+```bash
+npx skills add anthonyruv/growth-skills --list
+```
+
+## Use it in your agent
+
+Ask for the skill by name and supply business context:
+
+> Use build-landing-page for my offer. Ask for any missing information that would change the promise, audience, or main action.
+
+In agents that expose slash commands, you can also select the installed skill there. Start a new session if your agent does not discover a newly installed skill immediately.
+
+## Update or download
+
+Use the CLI to check for and apply available updates:
+
+```bash
+npx skills check
+npx skills update
+```
+
+Each skill page also includes a ZIP download containing the same instructions and references. Unzip it into your agent’s documented skills directory if you prefer a manual installation.
+
+## Inspect the source
+
+Everything the agent receives is in the [public repository](https://github.com/anthonyruv/growth-skills/tree/main/skills). There is no hosted execution service or account required by Growth Skills. Installing or using the third-party CLI may have its own network and telemetry behavior; consult its documentation.
