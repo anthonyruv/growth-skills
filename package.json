@@ -35,7 +35,7 @@
     "skills:package": "bun scripts/package-skills.ts",
     "skills:validate": "bun scripts/validate-skills.ts",
     "build:cloudflare": "bun run skills:validate && bun run skills:package && bun run --filter web build:cloudflare",
-    "deploy:built": "cd apps/web && wrangler deploy",
+    "deploy:built": "bun run --filter web deploy:built",
     "verify": "bun run build:cloudflare && bun run check-types"
   },
   "dependencies": {
